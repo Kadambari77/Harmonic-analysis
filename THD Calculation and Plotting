@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from src.fourier_analysis import fourier_analysis
+
+def calculate_thd(signal, sampling_rate):
+    freqs, magnitudes = fourier_analysis(signal, sampling_rate)
+    fundamental = magnitudes[0]  # Assuming the fundamental frequency is at index 0
+    harmonics = magnitudes[1:]
+
+    thd = np.sqrt(np.sum(harmonics**2)) / fundamental
+    return thd
+
+def plot_harmonics(signal, sampling_rate):
+    freqs, magnitudes = fourier_analysis(signal, sampling_rate)
+    plt.figure(figsize=(10, 6))
+    plt.stem(freqs, magnitudes, use_line_collection=True)
+    plt.title('Harmonic Analysis')
+    plt.xlabel('Frequency (Hz)')
+    plt.ylabel('Magnitude')
+    plt.show()
