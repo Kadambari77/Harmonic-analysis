@@ -1,5 +1,4 @@
 # Harmonic-analysis
-
 This project provides a tool to perform **harmonic analysis on AC signals**. It calculates the **Total Harmonic Distortion (THD)** and displays individual harmonic components using **Fourier analysis**. 
 
 ## **Features**
